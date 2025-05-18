@@ -1,0 +1,27 @@
+
+// This file contains the launch configuration for debugging your .NET Core application.
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/AtelierCleanApp.Api/bin/Debug/net8.0/AtelierCleanApp.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/AtelierCleanApp.Api",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/src/AtelierCleanApp.Api/Views"
+            }
+        }]    
+}
