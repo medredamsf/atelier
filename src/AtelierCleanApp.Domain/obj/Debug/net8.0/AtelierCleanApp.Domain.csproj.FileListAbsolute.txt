@@ -1,0 +1,12 @@
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/bin/Debug/net8.0/AtelierCleanApp.Domain.deps.json
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/bin/Debug/net8.0/AtelierCleanApp.Domain.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/bin/Debug/net8.0/AtelierCleanApp.Domain.pdb
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.AssemblyInfoInputs.cache
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.AssemblyInfo.cs
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.csproj.CoreCompileInputs.cache
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.sourcelink.json
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/refint/AtelierCleanApp.Domain.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/AtelierCleanApp.Domain.pdb
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Domain/obj/Debug/net8.0/ref/AtelierCleanApp.Domain.dll

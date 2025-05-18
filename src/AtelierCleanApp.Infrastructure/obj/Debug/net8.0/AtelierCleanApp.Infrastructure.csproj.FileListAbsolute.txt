@@ -1,0 +1,16 @@
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/bin/Debug/net8.0/AtelierCleanApp.Infrastructure.deps.json
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/bin/Debug/net8.0/AtelierCleanApp.Infrastructure.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/bin/Debug/net8.0/AtelierCleanApp.Infrastructure.pdb
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/bin/Debug/net8.0/AtelierCleanApp.Domain.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/bin/Debug/net8.0/AtelierCleanApp.Domain.pdb
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.csproj.AssemblyReference.cache
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.AssemblyInfoInputs.cache
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.AssemblyInfo.cs
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.sourcelink.json
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierC.53FEDD33.Up2Date
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/refint/AtelierCleanApp.Infrastructure.dll
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/AtelierCleanApp.Infrastructure.pdb
+/Users/mohamedredamoustadraf/Documents/project/atelier/src/AtelierCleanApp.Infrastructure/obj/Debug/net8.0/ref/AtelierCleanApp.Infrastructure.dll
