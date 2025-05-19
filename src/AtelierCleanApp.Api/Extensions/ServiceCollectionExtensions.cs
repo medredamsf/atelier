@@ -20,6 +20,7 @@ public static class ServiceCollectionExtensions
                 }));
         services.AddScoped<IPlayerRepository, PlayerRepository>();
         services.AddScoped<IPlayerService, PlayerService>();
+        services.AddScoped<IPlayerStatisticsService, PlayerStatisticsService>();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddAutoMapper(typeof(MappingProfile));

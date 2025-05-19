@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtelierCleanApp.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+499c5c1d42f449776ecf5e241523c73e8c962fe7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81443b677d6e611b440191bcab6397c588e3e25e")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtelierCleanApp.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtelierCleanApp.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

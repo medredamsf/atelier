@@ -1,6 +1,6 @@
 using AtelierCleanApp.Application.Contracts;
 using AtelierCleanApp.Domain.Constants;
-using AtelierCleanApp.Domain.Entities;
+using AtelierCleanApp.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AtelierCleanApp.Api.Controllers;
@@ -11,11 +11,13 @@ namespace AtelierCleanApp.Api.Controllers;
 public class PlayersController : ControllerBase
 {
     private readonly IPlayerService _playerService;
+    private readonly IPlayerStatisticsService _playerStatisticsService;
     private readonly ILogger<PlayersController> _logger;
 
-    public PlayersController(IPlayerService playerService, ILogger<PlayersController> logger)
+    public PlayersController(IPlayerService playerService, IPlayerStatisticsService playerStatisticsService, ILogger<PlayersController> logger)
     {
         _playerService = playerService ?? throw new ArgumentNullException(nameof(playerService));
+        _playerStatisticsService = playerStatisticsService ?? throw new ArgumentNullException(nameof(playerStatisticsService));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -27,9 +29,9 @@ public class PlayersController : ControllerBase
     /// <response code="200">Returns the requested player.</response>
     /// <response code="404">If the player with the specified ID is not found.</response>
     /// <response code="400">If the ID is invalid (e.g., less than or equal to 0).</response>
-    /// <response code="500">If an unexpected error occurs.</response>
+    /// <response code="500">If an unexpected error occurred.</response>
     [HttpGet("{id:int}")]
-    [ProducesResponseType(typeof(Player), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PlayerDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -65,9 +67,9 @@ public class PlayersController : ControllerBase
     /// <returns>A list of players sorted by rank.</returns>
     /// <response code="200">Returns the list of players</response>
     /// <response code="404">If no player found.</response>
-    /// <response code="500">Unexpected error happens.</response>
+    /// <response code="500">Unexpected error occurred.</response>
     [HttpGet]
-    [ProducesResponseType(typeof(IEnumerable<Player>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IEnumerable<PlayerDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetAllPlayersSortedByRank()
@@ -79,7 +81,7 @@ public class PlayersController : ControllerBase
 
             if (players == null || !players.Any())
             {
-                _logger.LogInformation(Messages.InformationMessages.PlayerNotFoundController);
+                _logger.LogInformation(Messages.InformationMessages.PlayersNotFoundController);
                 return NotFound(Messages.NotFoundMessages.PlayerNotFound);
             }
 
@@ -89,6 +91,38 @@ public class PlayersController : ControllerBase
         {
             _logger.LogError(ex, Messages.ErrorMessages.UnhandledExceptionGetAllPlayers);
             return StatusCode(StatusCodes.Status500InternalServerError, Messages.ErrorMessages.UnexpectedError);
+        }
+    }
+
+    /// <summary>
+    /// Gets player statistics.
+    /// This includes average BMI, median height, and the country with the highest win ratio.
+    /// </summary>
+    /// <returns>Players statistics</returns>
+    /// <response code="200">Returns the statistics of players</response>
+    /// <response code="404">If no player data found.</response>
+    /// <response code="500">Unexpected error happens.</response>
+    [HttpGet("statistics")]
+    [ProducesResponseType(typeof(PlayerStatisticsDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetPlayersStatistics()
+    {
+        try
+        {
+            var statistics = await _playerStatisticsService.GetPlayersStatisticsAsync();
+            if (statistics == null)
+            {
+                _logger.LogWarning(Messages.WarningMessages.NoPlayerData);
+                return NotFound(Messages.NotFoundMessages.PlayersStatisticsNotFound);
+            }
+
+            return Ok(statistics);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, Messages.ErrorMessages.UnhandledExceptionGetPlayersStatistics);
+            return StatusCode(StatusCodes.Status500InternalServerError, Messages.ErrorMessages.UnexpectedErrorOccurredGetPlayersStatistics);
         }
     }
 }

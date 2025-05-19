@@ -7,6 +7,10 @@ public class Program
         Console.WriteLine("--- Main: Application starting ---");
         var builder = WebApplication.CreateBuilder(args);
 
+        Console.WriteLine("--- Main: Setting AddUserSecrets ---");
+        builder.Configuration.AddUserSecrets<Program>();
+        Console.WriteLine("--- Main: Returned from AddUserSecrets ---");
+
         Console.WriteLine("--- Main: Calling ConfigureApplicationServices ---");
         builder.Services.ConfigureApplicationServices(builder.Configuration);
         Console.WriteLine("--- Main: Returned from ConfigureApplicationServices ---");

@@ -26,4 +26,6 @@ public interface IPlayerRepository
     /// </summary>
     /// <returns>Une liste en lecture seule des joueurs triés.</returns>
     Task<IReadOnlyList<Player>> GetAllPlayersSortedByRankAsync();
+
+    Task<IReadOnlyList<Player>> GetAllPlayersAsync();
 }

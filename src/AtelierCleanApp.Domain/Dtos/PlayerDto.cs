@@ -1,5 +1,9 @@
 namespace AtelierCleanApp.Domain.Dtos;
 
+/// <summary>
+/// Represents a player DTO object.
+/// This class is used to transfer player statistics data between layers.
+/// </summary>
 public class PlayerDto
 {
     public int Id { get; set; }
