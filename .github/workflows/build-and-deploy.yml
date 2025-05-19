@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: atelier-clean-app
+  AZURE_WEBAPP_NAME: atelier-clean-web-app
   AZURE_WEBAPP_PACKAGE_PATH: "./src/AtelierCleanApp.Api/publish"
   DOTNET_VERSION: "8.x"
   SOLUTION_PATH: "AtelierCleanApp.sln"
