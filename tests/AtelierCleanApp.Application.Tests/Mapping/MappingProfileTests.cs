@@ -1,5 +1,4 @@
 using AutoMapper;
-using Xunit;
 using FluentAssertions;
 using AtelierCleanApp.Domain.Entities;
 using AtelierCleanApp.Domain.Dtos;
