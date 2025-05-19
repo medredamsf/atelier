@@ -4,7 +4,7 @@
 
 AtelierCleanApp est une application API RESTful développée avec .NET 8, conçue pour gérer des données de joueurs de tennis. Le projet sert d'exemple pratique pour l'implémentation des principes de la **Clean Architecture**, en mettant l'accent sur une structure de code découplée, testable, maintenable et évolutive.
 
-L'objectif principal est de démontrer comment organiser une application en couches distinctes (Domaine, Application, Infrastructure, Présentation) avec des dépendances claires allant vers le centre (Domaine). Cela permet une meilleure séparation des préoccupations et facilite l'évolution et le test des différentes parties de l'application de manière isolée. L'API expose des endpoints pour des opérations CRUD de base sur les joueurs, comme la récupération d'un joueur par son ID et l'obtention d'une liste de tous les joueurs triés par leur rang.
+L'objectif principal est de démontrer comment organiser une application en couches distinctes (Domaine, Application, Infrastructure, Présentation) avec des dépendances claires allant vers le centre (Domaine). Cela permet une meilleure séparation des préoccupations et facilite l'évolution et le test des différentes parties de l'application de manière isolée. L'API expose des endpoints pour des opérations de base sur les joueurs, comme la récupération d'un joueur par son ID et l'obtention d'une liste de tous les joueurs triés par leurs rang, ainsi que les statistiques de l'ensemble des joueurs.
 
 ## Getting Started
 
@@ -44,6 +44,7 @@ Une fois l'application démarrée en mode Développement, la documentation de l'
 Les endpoints principaux incluent :
 * `GET /api/players`: Récupère tous les joueurs, triés par rang.
 * `GET /api/players/{id}`: Récupère un joueur spécifique par son ID.
+* `GET /api/statistics`: Récupère les statistiques de l'ensemble des joueurs.
 
 ### Configuration de la Base de Données
 
@@ -58,7 +59,7 @@ Les endpoints principaux incluent :
           // ...
         }
         ```
-
+    * NB : les credentials de la base SQL Server sur azure sont déjà renseigné dans le user secret du projet.
 ## Build and Test
 
 ### Build

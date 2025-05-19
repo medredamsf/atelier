@@ -63,4 +63,22 @@ public class PlayerRepository : IPlayerRepository
             throw; // Re-throw to be handled by the service layer or an exception middleware
         }
     }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Player>> GetAllPlayersAsync()
+    {
+        try
+        {
+            return await _dbContext.Players
+                                    .Include(p => p.Country)
+                                    .Include(p => p.Data)
+                                    .AsNoTracking() // Good for read-only operations
+                                    .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, Messages.ErrorMessages.UnexpectedErrorOccurredGetAllPlayers);
+            throw; // Re-throw to be handled by the service layer or an exception middleware
+        }
+    }
 }

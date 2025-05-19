@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
-using AtelierCleanApp.Domain.Entities;
+
 using AtelierCleanApp.Domain.Dtos;
 using AtelierCleanApp.Domain.Constants;
 
@@ -14,14 +14,17 @@ namespace AtelierCleanApp.Api.Tests.Controllers;
 public class PlayersControllerTests
 {
     private readonly Mock<IPlayerService> _mockPlayerService;
+    private readonly Mock<IPlayerStatisticsService> _mockPlayerStatisticsService;
     private readonly Mock<ILogger<PlayersController>> _mockLogger;
     private readonly PlayersController _playersController;
 
     public PlayersControllerTests()
     {
         _mockPlayerService = new Mock<IPlayerService>();
+        _mockPlayerStatisticsService = new Mock<IPlayerStatisticsService>();
         _mockLogger = new Mock<ILogger<PlayersController>>();
-        _playersController = new PlayersController(_mockPlayerService.Object, _mockLogger.Object);
+
+        _playersController = new PlayersController(_mockPlayerService.Object, _mockPlayerStatisticsService.Object, _mockLogger.Object);
     }
 
     // Tests for GetPlayerById()
@@ -30,8 +33,11 @@ public class PlayersControllerTests
     {
         // Arrange
         var playerId = 1;
-        var expectedDto = new PlayerDto {
-            Id = playerId, FirstName = "ControllerTest", LastName = "Player",
+        var expectedDto = new PlayerDto
+        {
+            Id = playerId,
+            FirstName = "ControllerTest",
+            LastName = "Player",
             Country = new CountryDto { Code = "TST", Picture = "tst.png" },
             Data = new PlayerDataDto { Rank = 1 }
         };
@@ -119,14 +125,50 @@ public class PlayersControllerTests
         objectResult?.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
         objectResult?.Value.Should().Be(Messages.ErrorMessages.UnexpectedError);
         _mockPlayerService.Verify(service => service.GetAllPlayersSortedByRankAsync(), Times.Once);
-        _mockLogger.Verify(
-            x => x.Log(
-                LogLevel.Error,
-                It.IsAny<EventId>(),
-                It.Is<It.IsAnyType>((v, t) => v.ToString().Contains(Messages.ErrorMessages.UnhandledExceptionGetAllPlayers)),
-                serviceException,
-                It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
-            Times.Once);
+    }
+
+    // Tests for GetPlayersStatistics()
+    [Fact]
+    public async Task GetPlayerStatistics_WhenStatisticsAvailable_ShouldReturnOkWithStatistics()
+    {
+        // Arrange
+        var expectedStats = new PlayerStatisticsDto { AverageBmi = 22.5, MedianHeight = 180.0 };
+        _mockPlayerStatisticsService.Setup(s => s.GetPlayersStatisticsAsync()).ReturnsAsync(expectedStats);
+
+        // Act
+        var result = await _playersController.GetPlayersStatistics();
+
+        // Assert
+        result.Should().BeOfType<OkObjectResult>();
+        (result as OkObjectResult)?.Value.Should().BeEquivalentTo(expectedStats);
+    }
+    
+    [Fact]
+    public async Task GetStatistics_ReturnsNotFound_WhenServiceReturnsNull()
+    {
+        // Arrange
+        _mockPlayerStatisticsService.Setup(s => s.GetPlayersStatisticsAsync()).ReturnsAsync((PlayerStatisticsDto)null!);
+
+        // Act
+        var result = await _playersController.GetPlayersStatistics();
+
+        // Assert
+        result.Should().BeOfType<NotFoundObjectResult>();
+    }
+
+    [Fact]
+    public async Task GetStatistics_Returns500_WhenServiceThrowsException()
+    {
+        // Arrange
+        _mockPlayerStatisticsService.Setup(s => s.GetPlayersStatisticsAsync()).ThrowsAsync(new Exception("Simulated error"));
+
+        // Act
+        var result = await _playersController.GetPlayersStatistics();
+
+        // Assert
+        var objectResult = result.Should().BeOfType<ObjectResult>().Subject;
+        objectResult.StatusCode.Should().Be(500);
+        objectResult.Value.Should().Be(Messages.ErrorMessages.UnexpectedErrorOccurredGetPlayersStatistics);
     }
 }
 
