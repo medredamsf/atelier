@@ -34,16 +34,11 @@ public static class ServiceCollectionExtensions
 
     public static WebApplication ConfigureRequestPipeline(this WebApplication app)
     {
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AtelierCleanApp API v1"));
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseHsts();
-        }
+        
+        app.UseSwagger();
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AtelierCleanApp API v1"));
+        app.UseDeveloperExceptionPage();
+
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseAuthorization();
