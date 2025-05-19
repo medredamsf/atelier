@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtelierCleanApp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f82e79226fca908b0440f20f0a36a60e2d12137")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9733a09ffe54204757b373559d7fc075be4467d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtelierCleanApp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtelierCleanApp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
